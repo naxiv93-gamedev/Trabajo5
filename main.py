@@ -10,6 +10,7 @@ from DeleteAlumno import DeleteAlumno
 from NewAlumno import NewAlumno
 from ReadAlumno import ReadAlumno
 from StudentWizard import StudentGenerationWizard
+from ClassWizard import ClassGenerationWizard
 
 
 
@@ -21,7 +22,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     new = None
     delete = None
     read = None
-    form = None
+    studentForm = None
+    classForm = None
     def __init__(self):
         super().__init__()
         
@@ -36,8 +38,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.botonCrearAlumno.clicked.connect(self.nuevo)
         self.botonEliminarAlumno.clicked.connect(self.borrar)
         self.botonModificarAlumno.clicked.connect(self.modificar)
-        self.botonGenerarInformeAlumno.clicked.connect(self.informe)
-        self.botonGenerarInformeClase.clicked.connect(self.informe)
+        self.botonGenerarInformeAlumno.clicked.connect(self.informeEstudiante)
+        self.botonGenerarInformeClase.clicked.connect(self.informeClase)
         self.botonCerrar.clicked.connect(self.close)
         
     def mostrar(self):
@@ -52,9 +54,12 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def modificar(self):
         self.modify = ModifyAlumno()
         self.modify.show()
-    def informe(self):
-        self.form = GenerationWizard()
-        self.form.show()
+    def informeEstudiante(self):
+        self.studentForm = StudentGenerationWizard()
+        self.studentForm.show()
+    def informeClase(self):
+        self.classForm = ClassGenerationWizard()
+        self.classForm.show()
     
 
     

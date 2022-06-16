@@ -154,7 +154,7 @@ class StudentGenerationWizard(QWizard):
         exporter = pg.exporters.ImageExporter(self.page1.graphWidget.plotItem)
         exporter.parameters()['width'] = 400
         exporter.export('graphic.png')
-        template = PdfReader("Template.pdf", decompress=False).pages[0]
+        template = PdfReader("templateStudent.pdf", decompress=False).pages[0]
         template_obj = pagexobj(template)
         canvas = Canvas(outfile)
         xobj_name = makerl(canvas, template_obj)
@@ -211,7 +211,7 @@ class ViewWidget(QWidget):
         self.web.settings().setAttribute(QWebEngineSettings.PluginsEnabled, True)
 
         # Con Path guardamos la ruta relativa al documento
-        rutaConPDF = Path("result.pdf")
+        rutaConPDF = Path("resultStudent.pdf")
         # Cargamos el fichero con la ruta absoluta como uri
         # Usando http o https también se pueden cargar páginas web
         self.web.load(QUrl(rutaConPDF.absolute().as_uri()))
@@ -219,6 +219,6 @@ class ViewWidget(QWidget):
         
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    window = GenerationWizard()
+    window = StudentGenerationWizard()
     window.show()
     app.exec()
