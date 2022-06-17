@@ -33,7 +33,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.actionA_adir_nuevo_alumno.triggered.connect(self.nuevo)
         self.actionBorrar_alumno.triggered.connect(self.borrar)
         self.actionModificar_alumno.triggered.connect(self.modificar)
-        
+        self.actionGenerar_Informe_Alumno.triggered.connect(self.informeEstudiante)
+        self.actionGenerar_Informe_Clase.triggered.connect(self.informeClase)
         self.botonLeerAlumno.clicked.connect(self.mostrar)
         self.botonCrearAlumno.clicked.connect(self.nuevo)
         self.botonEliminarAlumno.clicked.connect(self.borrar)

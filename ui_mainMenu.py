@@ -85,7 +85,7 @@ class Ui_MainWindow(object):
         self.botonGenerarInformeAlumno = QPushButton(self.centralwidget)
         self.botonGenerarInformeAlumno.setObjectName(u"botonGenerarInformeAlumno")
         self.botonGenerarInformeClase = QPushButton(self.centralwidget)
-        self.botonGenerarInformeAlumno.setObjectName(u"botonGenerarInformeClase")
+        self.botonGenerarInformeClase.setObjectName(u"botonGenerarInformeClase")
 
         self.gridLayout.addWidget(self.botonGenerarInformeAlumno, 0, 2, 1, 1)
         self.gridLayout.addWidget(self.botonGenerarInformeClase, 1, 2, 1, 1)
@@ -133,6 +133,8 @@ class Ui_MainWindow(object):
         self.actionModificar_alumno.setText(QCoreApplication.translate("MainWindow", u"Modificar alumno", None))
         self.actionMostrar_alumno.setText(QCoreApplication.translate("MainWindow", u"Mostrar alumno", None))
         self.actionGenerar_Informe_Alumno.setText(QCoreApplication.translate("MainWindow", u"Generar Informe Alumno", None))
+        self.actionGenerar_Informe_Clase.setText(QCoreApplication.translate("MainWindow", u"Generar Informe Clase", None))
+
         self.label.setText(QCoreApplication.translate("MainWindow", u"Bienvenido al Custodio de Alumnos de Desarrollo de Interfaces (C.A.D.I)", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"Acciones disponibles", None))
         self.botonEliminarAlumno.setText(QCoreApplication.translate("MainWindow", u"Eliminar Alumno", None))
