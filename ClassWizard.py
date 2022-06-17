@@ -42,7 +42,7 @@ class WizardPage1(QWizardPage):
         self.checkboxAprobados.setChecked(True)
         self.checkboxSuspensos= QCheckBox('Mostrar numero de Suspensos')
         self.checkboxSuspensos.setChecked(True)
-        self.checkboxPorcentaje = QCheckBox('mostrar el porcentaje de aprobados')
+        self.checkboxPorcentaje = QCheckBox('Mostrar el porcentaje de Aprobados/Suspensos')
         self.checkboxPorcentaje.setChecked(True)
         self.notas1Ev = []
         self.notas2Ev = []

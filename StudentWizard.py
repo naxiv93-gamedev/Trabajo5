@@ -64,6 +64,8 @@ class WizardPage1(QWizardPage):
             self.notas2Ev = query.value(3)
             self.notas3Ev = query.value(4)
             self.checkCheckboxes()
+        self.completeChanged.emit()
+
 
 
 
@@ -97,7 +99,7 @@ class WizardPage1(QWizardPage):
             string = id + "-" + nombre
             self.selectorAlumno.addItem(string)
     def isComplete(self):
-        return len(self.notas) >= 2 and super().isComplete()
+        return len(self.notas) >= 2 and super().isComplete() and self.selectorAlumno.currentIndex() != 0
         
 class WizardPage2(QWizardPage):
     def __init__(self):
@@ -149,7 +151,7 @@ class StudentGenerationWizard(QWizard):
         self.button(QWizard.FinishButton).clicked.connect(self.onFinish)
         
     def onFinish(self):
-        outfile = "result.pdf"
+        outfile = "resultStudent.pdf"
 
         exporter = pg.exporters.ImageExporter(self.page1.graphWidget.plotItem)
         exporter.parameters()['width'] = 400

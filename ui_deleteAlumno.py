@@ -100,15 +100,18 @@ class Ui_DeleteAlumno(object):
 
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
+        
+        self.botonConfirmar = QPushButton(DeleteAlumno)
+        self.botonConfirmar.setObjectName(u"botonConfirmar")
+
+        self.horizontalLayout.addWidget(self.botonConfirmar)
+        
         self.botonCancelar = QPushButton(DeleteAlumno)
         self.botonCancelar.setObjectName(u"botonCancelar")
 
         self.horizontalLayout.addWidget(self.botonCancelar)
 
-        self.botonConfirmar = QPushButton(DeleteAlumno)
-        self.botonConfirmar.setObjectName(u"botonConfirmar")
-
-        self.horizontalLayout.addWidget(self.botonConfirmar)
+        
 
 
         self.verticalLayout.addLayout(self.horizontalLayout)
