@@ -1,0 +1,9 @@
+//Guarda los datos de un alumno
+Table alumnos {
+
+  ID int [pk, increment] 
+  Nombre varchar //nombre del alumno
+  NotaEv1 int //Nota de la primera evaluacion
+  NotaEv2 int //Nota de la segunda evaluacion
+  NotaEv3 int //Nota de la tercera evaluacion
+}
