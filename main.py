@@ -2,6 +2,7 @@ import sys
 from PySide6.QtWidgets import QApplication, QMainWindow, QAbstractItemView
 from PySide6.QtSql import QSqlDatabase, QSqlQuery, QSqlRelation, QSqlRelationalTableModel
 from PySide6.QtCore import Qt
+from inserter import Inserter
 from ui_mainMenu import Ui_MainWindow
 from PySide6.QtWidgets import QWidget
 
@@ -42,6 +43,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.botonGenerarInformeAlumno.clicked.connect(self.informeEstudiante)
         self.botonGenerarInformeClase.clicked.connect(self.informeClase)
         self.botonCerrar.clicked.connect(self.close)
+        
+        inserter = Inserter()
+        inserter.insert()
         
     def mostrar(self):
         self.read = ReadAlumno()
