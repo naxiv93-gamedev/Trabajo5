@@ -1,6 +1,7 @@
 from PySide6.QtWidgets import QWidget
 from ui_modifyAlumno import Ui_ModifyAlumno
 from PySide6.QtSql import QSqlDatabase, QSqlQuery, QSqlRelation, QSqlRelationalTableModel
+import pyqtgraph as pg
 
 class ModifyAlumno(QWidget,Ui_ModifyAlumno):
     db = QSqlDatabase("QSQLITE")
@@ -14,6 +15,9 @@ class ModifyAlumno(QWidget,Ui_ModifyAlumno):
         self.selectorAlumno.currentIndexChanged.connect(self.mostrarAlumno)
         self.botonCancelar.clicked.connect(self.close)
         self.botonConfirmar.clicked.connect(self.modifyAlumno)
+        self.notaEv1.valueChanged.connect(self.plot)
+        self.notaEv2.valueChanged.connect(self.plot)
+        self.notaEv3.valueChanged.connect(self.plot)
 
     def getAlumnos(self):
         query = QSqlQuery("SELECT * FROM Alumnos",db=self.db)
@@ -66,7 +70,11 @@ class ModifyAlumno(QWidget,Ui_ModifyAlumno):
         print(query.exec_())
         self.close()
         
-        
+    def plot(self):
+        self.graphWidget.clear()
+        evaluaciones =[1,2,3]
+        notas = [self.notaEv1.value(),self.notaEv2.value(),self.notaEv3.value()]
+        self.graphWidget.plot(evaluaciones,notas)
     def getID(self,string):
         currentIndex = string.split("-")[0]
         return currentIndex

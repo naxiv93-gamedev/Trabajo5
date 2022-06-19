@@ -2,7 +2,8 @@ import sys
 from PySide6.QtWidgets import QApplication, QMainWindow, QAbstractItemView
 from PySide6.QtSql import QSqlDatabase, QSqlQuery, QSqlRelation, QSqlRelationalTableModel
 from PySide6.QtCore import Qt
-from inserter import Inserter
+from tests.inserter import Inserter
+from tests.requester import Requester
 from ui_mainMenu import Ui_MainWindow
 from PySide6.QtWidgets import QWidget
 
@@ -44,27 +45,36 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.botonGenerarInformeClase.clicked.connect(self.informeClase)
         self.botonCerrar.clicked.connect(self.close)
         
-        inserter = Inserter()
-        inserter.insert()
+        self.requester = Requester()
+        self.requester.request()
+        self.inserter = Inserter()
+        self.inserter.insert()
+        
         
     def mostrar(self):
         self.read = ReadAlumno()
         self.read.show()
+        self.requester.request()
     def nuevo(self):
         self.new = NewAlumno()
         self.new.show()
+        self.requester.request()
     def borrar(self):
         self.delete = DeleteAlumno()
         self.delete.show()
+        self.requester.request()
     def modificar(self):
         self.modify = ModifyAlumno()
         self.modify.show()
+        self.requester.request()
     def informeEstudiante(self):
         self.studentForm = StudentGenerationWizard()
         self.studentForm.show()
+        self.requester.request()
     def informeClase(self):
         self.classForm = ClassGenerationWizard()
         self.classForm.show()
+        self.requester.request()
     
 
     

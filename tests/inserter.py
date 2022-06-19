@@ -2,14 +2,16 @@ from PySide6.QtSql import QSqlDatabase, QSqlQuery, QSqlRelation, QSqlRelationalT
 from random import randint
 class Inserter():
     names = ["Paco","Pepa","Pipo","Popi"]
+    limit = 0
     def __init__(self) -> None:
         
         self.db = QSqlDatabase("QSQLITE")
         self.db.setDatabaseName("alumnos.sqlite")
         self.db.open()
     def insert(self):
-        for i in range(0,10000):
-            self.crearAlumno()            
+        if self.limit != 0:
+            for i in range(0,self.limit):
+                self.crearAlumno()            
     def chooseRandomFromList(self,list):
         return list[randint(0,len(list)-1)]
     def crearAlumno(self):

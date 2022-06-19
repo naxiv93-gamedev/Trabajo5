@@ -18,6 +18,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QComboBox, QDoubleSpinBox, QFormLayout,
     QHBoxLayout, QLabel, QLineEdit, QPushButton,
     QSizePolicy, QVBoxLayout, QWidget)
+import pyqtgraph as pg
+
 
 class Ui_ModifyAlumno(object):
     def setupUi(self, ModifyAlumno):
@@ -87,7 +89,12 @@ class Ui_ModifyAlumno(object):
 
 
         self.verticalLayout.addLayout(self.formLayout)
-
+        
+        self.graphWidget = pg.PlotWidget(self)
+        self.graphWidget.setObjectName(u"graphWidget")
+        self.graphWidget.setBackground('w') 
+        self.verticalLayout.addWidget(self.graphWidget)
+        
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.botonConfirmar = QPushButton(ModifyAlumno)
